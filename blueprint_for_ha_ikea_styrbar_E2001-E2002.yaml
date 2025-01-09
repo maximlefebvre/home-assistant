@@ -15,12 +15,12 @@ blueprint:
     min_version: 2025.1.0
   input:
     topic:
-          name: Topic
-          description: Topic to follow
-          default: "zigbee2mqtt/?"
-          selector:
-            text:
-              multiline: false
+      name: Topic
+      description: Topic to follow
+      default: "zigbee2mqtt/?"
+      selector:
+        text:
+          multiline: false
     Ikea_sensor:
       name: Ikea sensor
       description:  E2001/E2002
