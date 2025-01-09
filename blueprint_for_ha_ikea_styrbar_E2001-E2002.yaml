@@ -14,13 +14,16 @@ blueprint:
   homeassistant:
     min_version: 2025.1.0
   input:
-    text:
-      name: topic
-      description: Topic to watch 
+    topic:
+          name: Topic
+          description: Topic to follow
+          default: "zigbee2mqtt/?"
+          selector:
+            text:
+              multiline: false
     Ikea_sensor:
       name: Ikea sensor
       description:  E2001/E2002
-      icon: mdi:cog
       collapsed: true
       input:
         top:
@@ -91,8 +94,8 @@ blueprint:
             action: {}
 mode: parallel
 max_exceeded: silent
-triggers:
-    - trigger: mqtt
+trigger:
+    - platform: mqtt
       topic: !input topic
 condition:
   condition: template
