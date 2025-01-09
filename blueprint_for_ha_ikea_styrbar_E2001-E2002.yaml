@@ -23,7 +23,9 @@ blueprint:
           - event
           integration: mqtt
           multiple: false
-        text:
+    text:
+      name: Topic
+      description: Topic to watch 
     Ikea_sensor:
       name: Ikea sensor
       description:  E2001/E2002
