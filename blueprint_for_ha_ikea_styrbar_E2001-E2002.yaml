@@ -54,8 +54,14 @@ blueprint:
           selector:
             action: {}
         top_long:
-          name: Top and bottom long button
-          description: Action to after long click Top and Bottom
+          name: Top long button
+          description: Action to after long click Top
+          default: []
+          selector:
+            action: {}
+        bottom_long:
+          name: Bottom long button
+          description: Action to after long click Bottom
           default: []
           selector:
             action: {}
@@ -74,12 +80,6 @@ blueprint:
         top_release:
           name: Release top button
           description: Action to after release Top
-          default: []
-          selector:
-            action: {}
-        bottom_release:
-          name: Release bottom button
-          description: Action to after release Bottom
           default: []
           selector:
             action: {}
