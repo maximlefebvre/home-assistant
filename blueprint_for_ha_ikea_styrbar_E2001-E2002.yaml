@@ -96,7 +96,7 @@ trigger:
       topic: !input topic_to_follow
 condition:
   condition: template
-  value_template: '{{ trigger.to_state.attributes.event_type in (
+  value_template: '{{ trigger.payload in (
     ''on'',
     ''brightness_move_up'',
     ''brightness_stop'',
