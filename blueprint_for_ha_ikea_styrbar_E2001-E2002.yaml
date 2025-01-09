@@ -1,0 +1,155 @@
+blueprint:
+  name: Blueprint for IKEA Styrbar E2001/E2002 with Zigbee2MQTT 2.0 (without legacy option)
+  source_url: 
+  author: Maxime Lefebvre
+  description: >-
+    <div>
+      <h2>IKEA Styrbar E2001/E2002 with Zigbee2MQTT 2.0</h2>
+      <b>Version 0.1 Beta</b><a href="">Github Link</a>
+      </div>
+      <br>   
+    Used Styrbar E2001/E2002 to control automation
+
+  domain: automation
+  homeassistant:
+    min_version: 2025.1.0
+  input:
+    input_switch:
+      name: switch
+      description: Switch to use *
+      selector:
+        entity:
+          domain:
+          - event
+          integration: mqtt
+          multiple: false      
+    Ikea_sensor:
+      name: Ikea sensor
+      description:  E2001/E2002
+      icon: mdi:cog
+      collapsed: true
+      input:
+        top:
+          name: Top button
+          description: Action to after click Top
+          default: []
+          selector:
+            action: {}
+        bottom:
+          name: Bottom button
+          description: Action to after click Bottom
+          default: []
+          selector:
+            action: {}
+        left:
+          name: Left button
+          description: Action to after click Left
+          default: []
+          selector:
+            action: {}
+        right:
+          name: Right button
+          description: Action to after click Right
+          default: []
+          selector:
+            action: {}
+        top_long:
+          name: Top and bottom long button
+          description: Action to after long click Top and Bottom
+          default: []
+          selector:
+            action: {}
+        left_long:
+          name: Left long button
+          description: Action to after long click Left
+          default: []
+          selector:
+            action: {}
+        right_long:
+          name: Right long button
+          description: Action to after long click Right
+          default: []
+          selector:
+            action: {}
+        top_release:
+          name: Release top button
+          description: Action to after release Top
+          default: []
+          selector:
+            action: {}
+        bottom_release:
+          name: Release bottom button
+          description: Action to after release Bottom
+          default: []
+          selector:
+            action: {}
+        left_release:
+          name: Release left button
+          description: Action to after release Left
+          default: []
+          selector:
+            action: {}
+        right_release:
+          name: Release right button
+          description: Action to after release Right
+          default: []
+          selector:
+            action: {}
+mode: parallel
+max_exceeded: silent
+trigger:
+- platform: state
+  entity_id: !input input_switch
+condition:
+  condition: template
+  value_template: '{{ trigger.to_state.attributes.event_type in (
+    ''on'',
+    ''brightness_move_up'',
+    ''brightness_stop'',
+    ''off'',
+    ''brightness_move_down'',
+    ''brightness_stop'',
+    ''arrow_left_click'',
+    ''arrow_left_hold'',
+    ''arrow_left_release'',
+    ''arrow_right_click'',
+    ''arrow_right_hold'',
+    ''arrow_right_release''  
+    ) }}'
+action:
+- variables:
+    command: '{{ trigger.to_state.attributes.event_type }}'
+- choose:
+  - conditions:
+    - '{{ command == ''on'' }}'
+    sequence: !input top
+  - conditions:
+    - '{{ command == ''brightness_move_up'' }}'
+    sequence: !input top_long
+    - conditions:
+  - '{{ command == ''brightness_stop'' }}'
+    sequence: !input top_release
+  - conditions:
+    - '{{ command == ''off'' }}'
+    sequence: !input bottom
+  - conditions:
+    - '{{ command == ''brightness_move_down'' }}'
+    sequence: !input bottom_long
+  - conditions:
+    - '{{ command == ''arrow_left_click'' }}'
+    sequence: !input left
+  - conditions:
+    - '{{ command == ''arrow_left_hold'' }}'
+    sequence: !input left_long
+    - conditions:
+  - '{{ command == ''arrow_left_release'' }}'
+    sequence: !input left_release
+  - conditions:
+    - '{{ command == ''arrow_right_click'' }}'
+    sequence: !input right
+  - conditions:
+    - '{{ command == ''arrow_right_hold'' }}'
+    sequence: !input right_long
+    - conditions:
+  - '{{ command == ''arrow_right_release'' }}'
+    sequence: !input right_release
