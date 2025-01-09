@@ -126,8 +126,8 @@ action:
   - conditions:
     - '{{ command == ''brightness_move_up'' }}'
     sequence: !input top_long
-    - conditions:
-  - '{{ command == ''brightness_stop'' }}'
+  - conditions:
+    - '{{ command == ''brightness_stop'' }}'
     sequence: !input top_release
   - conditions:
     - '{{ command == ''off'' }}'
@@ -141,8 +141,8 @@ action:
   - conditions:
     - '{{ command == ''arrow_left_hold'' }}'
     sequence: !input left_long
-    - conditions:
-  - '{{ command == ''arrow_left_release'' }}'
+  - conditions:
+    - '{{ command == ''arrow_left_release'' }}'
     sequence: !input left_release
   - conditions:
     - '{{ command == ''arrow_right_click'' }}'
@@ -150,6 +150,6 @@ action:
   - conditions:
     - '{{ command == ''arrow_right_hold'' }}'
     sequence: !input right_long
-    - conditions:
-  - '{{ command == ''arrow_right_release'' }}'
+  - conditions:
+    - '{{ command == ''arrow_right_release'' }}'
     sequence: !input right_release
