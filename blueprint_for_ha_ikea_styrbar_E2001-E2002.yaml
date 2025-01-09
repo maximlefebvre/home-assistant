@@ -21,10 +21,10 @@ blueprint:
       selector:
         text:
           multiline: false
-    Ikea_sensor:
-      name: Ikea sensor
-      description:  E2001/E2002
-      collapsed: true
+    Click:
+      name: Click
+      description: Configure here the action linked to the button with a click
+      collapsed: False
       input:
         top:
           name: Top button
@@ -50,6 +50,11 @@ blueprint:
           default: []
           selector:
             action: {}
+    Long_click:
+      name: Long click
+      description: Configure here the action linked to the button with a long click
+      collapsed: true
+      input:
         top_long:
           name: Top long button
           description: Action to after long click Top
@@ -74,6 +79,11 @@ blueprint:
           default: []
           selector:
             action: {}
+    Release:
+      name: Release
+      description: Configure here the action linked to the button after a release
+      collapsed: true
+      input:
         top_release:
           name: Release top button
           description: Action to after release Top
