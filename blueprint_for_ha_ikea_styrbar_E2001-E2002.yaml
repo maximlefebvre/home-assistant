@@ -5,10 +5,12 @@ blueprint:
   description: >-
     <div>
       <h2>IKEA Styrbar E2001/E2002 with Zigbee2MQTT 2.0</h2>
-      <b>Version 0.1 Beta</b><a href="">Github Link</a>
+      <b>Version 0.1 Beta</b><br>
+      <a href="https://raw.githubusercontent.com/maximlefebvre/home-assistant/refs/heads/main/blueprint_for_ha_ikea_styrbar_E2001-E2002.yaml">Github Link</a><br>
+      Use Styrbar E2001/E2002 to control automation
     </div>
     <br>   
-    Used Styrbar E2001/E2002 to control automation
+    Use Styrbar E2001/E2002 to control automation
 
   domain: automation
   homeassistant:
