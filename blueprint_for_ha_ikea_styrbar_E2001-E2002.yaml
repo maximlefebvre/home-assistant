@@ -93,7 +93,7 @@ mode: parallel
 max_exceeded: silent
 trigger:
     - platform: mqtt
-      topic: topic_to_follow
+      topic: !input topic_to_follow
 condition:
   condition: template
   value_template: '{{ trigger.to_state.attributes.event_type in (
