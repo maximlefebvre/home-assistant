@@ -6,8 +6,8 @@ blueprint:
     <div>
       <h2>IKEA Styrbar E2001/E2002 with Zigbee2MQTT 2.0</h2>
       <b>Version 0.1 Beta</b><a href="">Github Link</a>
-      </div>
-      <br>   
+    </div>
+    <br>   
     Used Styrbar E2001/E2002 to control automation
 
   domain: automation
@@ -16,7 +16,7 @@ blueprint:
   input:
     topic:
       name: Topic
-      description: Topic to follow
+      description: Topic to follow, for exemple "zigbee2mqtt/remoteXXXX/action" where you replace remoteXXX by the name of your remote as it is known in Zigbee2MQTT. 
       default: "zigbee2mqtt/?"
       selector:
         text:
