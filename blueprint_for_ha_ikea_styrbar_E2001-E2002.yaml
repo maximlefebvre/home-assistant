@@ -15,7 +15,7 @@ blueprint:
     min_version: 2025.1.0
   input:
     text:
-      name: Topic
+      name: Topic to follow
       description: Topic to watch 
     Ikea_sensor:
       name: Ikea sensor
@@ -93,7 +93,7 @@ mode: parallel
 max_exceeded: silent
 triggers:
     - trigger: mqtt
-      topic: topic
+      topic: topic_to_follow
 condition:
   condition: template
   value_template: '{{ trigger.to_state.attributes.event_type in (
