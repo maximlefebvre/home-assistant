@@ -22,7 +22,8 @@ blueprint:
           domain:
           - event
           integration: mqtt
-          multiple: false      
+          multiple: false
+        text:
     Ikea_sensor:
       name: Ikea sensor
       description:  E2001/E2002
