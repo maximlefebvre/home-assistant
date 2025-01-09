@@ -14,15 +14,6 @@ blueprint:
   homeassistant:
     min_version: 2025.1.0
   input:
-    input_switch:
-      name: switch
-      description: Switch to use *
-      selector:
-        entity:
-          domain:
-          - event
-          integration: mqtt
-          multiple: false
     text:
       name: Topic
       description: Topic to watch 
