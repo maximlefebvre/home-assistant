@@ -1,6 +1,6 @@
 blueprint:
   name: Blueprint for IKEA Styrbar E2001/E2002 with Zigbee2MQTT 2.0 (without legacy option)
-  source_url: 
+  source_url: https://github.com/maximlefebvre/home-assistant/blob/main/blueprint_for_ha_ikea_styrbar_E2001-E2002.yaml
   author: Maxime Lefebvre
   description: >-
     <div>
