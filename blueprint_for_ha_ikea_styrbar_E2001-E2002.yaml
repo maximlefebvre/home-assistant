@@ -91,8 +91,8 @@ blueprint:
             action: {}
 mode: parallel
 max_exceeded: silent
-trigger:
-    - platform: mqtt
+triggers:
+    - trigger: mqtt
       topic: !input topic_to_follow
 condition:
   condition: template
