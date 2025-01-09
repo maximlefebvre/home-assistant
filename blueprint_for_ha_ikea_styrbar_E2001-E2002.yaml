@@ -91,7 +91,7 @@ blueprint:
             action: {}
 mode: parallel
 max_exceeded: silent
-trigger:
+triggers:
     - trigger: mqtt
       topic: topic
 condition:
