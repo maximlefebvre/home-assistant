@@ -92,8 +92,8 @@ blueprint:
 mode: parallel
 max_exceeded: silent
 trigger:
-- platform: state
-  entity_id: !input input_switch
+    - trigger: mqtt
+      topic: topic
 condition:
   condition: template
   value_template: '{{ trigger.to_state.attributes.event_type in (
@@ -112,7 +112,7 @@ condition:
     ) }}'
 action:
 - variables:
-    command: '{{ trigger.to_state.attributes.event_type }}'
+    command: '{{ trigger.payload }}'
 - choose:
   - conditions:
     - '{{ command == ''on'' }}'
