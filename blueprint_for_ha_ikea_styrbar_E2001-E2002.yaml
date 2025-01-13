@@ -21,8 +21,8 @@ blueprint:
       selector:
         text:
           multiline: false
-    Click:
-      name: Click
+    Short_click:
+      name: Short click
       description: Configure here the action linked to the button with a click
       collapsed: False
       input:
